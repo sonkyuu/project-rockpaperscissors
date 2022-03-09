@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+       let choices = ['rock','paper','scissors'];
+
+       function computerPlay() {
+            return choices[Math.floor(Math.random() * choices.length)];
+
+        }
+     
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection === 'rock' && computerSelection === 'rock'){
+                return("Its a tie!");
+            } 
+
+           else if (playerSelection === 'rock' && computerSelection === 'paper') {
+                counter.computer += 1;
+                return("You lose! Paper beats rock!")
+            }
+
+           else if(playerSelection === 'rock' && computerSelection === 'scissors') {
+                counter.player += 1;
+                return("You win! rock beats scissors!")
+            }
+
+           else if(playerSelection === 'paper' && computerSelection === 'rock') {
+                counter.player += 1;
+                return("You win! paper beats rock!")
+            }
+
+           else if(playerSelection === 'paper' && computerSelection === 'paper') {
+                 return("Its a tie!")
+            }
+
+           else if(playerSelection === 'paper' && computerSelection === 'scissors') {
+                counter.computer += 1;
+                 return("You lose! scissor beats paper!")
+            }
+
+           else if(playerSelection === 'scissors' && computerSelection === 'rock') {
+                counter.computer += 1;
+                return("You lose! rock beats scissors")
+            }
+
+           else if(playerSelection === 'scissors' && computerSelection === 'paper') {
+                counter.player += 1;
+                return("You win! scissors beats paper")
+            }
+
+           else if(playerSelection === 'scissors' && computerSelection === 'scissors') {
+                return("Its a tie!")
+            }
+            else  {
+                return("Are we playing or not");
+            }
+         
+        }
+        let counter = {computer: 0, player: 0};
+        let playerSelection = prompt("What is your pick bruh?");
+        let computerSelection = computerPlay();
+        playerSelection = playerSelection.toUpperCase();
+        playerSelection = playerSelection.toLowerCase();
+        
+         function game() {
+            for (let i=0; i < 5; i++) {
+              alert(playRound(playerSelection, computerSelection));
+              computerSelection = computerPlay();
+            }
+                if (counter.player > counter.computer) {
+                  alert("You Win!");
+              } else if (counter.computer > counter.player) {
+                  alert("Computer Wins!");      
+             }  else if (counter.computer === counter.player) {
+                  alert("Tiebreaker!");
+             }
+            }
+           game();
+</script>      
+</body>
+</html>
